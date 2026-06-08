@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieSearch MySQL</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body {
+            background: radial-gradient(circle at top, #1e1b4b 0%, #0f172a 100%);
+            min-height: 100vh;
+        }
+
+        .movie-card {
+            transition: all .3s ease;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-6px);
+        }
+    </style>
+</head>
+
+<body class="text-white">
+
+<div class="max-w-6xl mx-auto px-6 py-16">
+
+    <div class="text-center mb-12">
+
+        <h1 class="text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+            MovieSearch
+        </h1>
+
+        <p class="text-slate-400 mt-4">
+            Semantic Movie Search using SBERT + MySQL
+        </p>
+
+    </div>
+
+    <div class="max-w-3xl mx-auto">
+
+        <div class="flex gap-3">
+
+            <input
+                id="queryInput"
+                type="text"
+                placeholder="მაგ: space exploration and black holes"
+                class="flex-1 px-5 py-4 rounded-xl bg-slate-900 border border-slate-700 focus:outline-none focus:border-blue-500"
+            >
+
+            <button
+                onclick="searchMovies()"
+                class="px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 transition"
+            >
+                ძებნა
+            </button>
+
+        </div>
+
+    </div>
+
+    <div
+        id="loader"
+        class="hidden mt-10 text-center"
+    >
+        <p class="text-blue-400">
+            AI ეძებს ფილმებს...
+        </p>
+    </div>
+
+    <div
+        id="resultsGrid"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12"
+    >
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
